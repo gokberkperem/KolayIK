@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolayik.UI", "Kolayik.UI\Kolayik.UI.csproj", "{BC2BC773-6477-4F88-942E-A1133C95D924}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC2BC773-6477-4F88-942E-A1133C95D924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC2BC773-6477-4F88-942E-A1133C95D924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC2BC773-6477-4F88-942E-A1133C95D924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC2BC773-6477-4F88-942E-A1133C95D924}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A2723F3-7A9D-4F7F-9561-9E6BD1BE68F7}
+	EndGlobalSection
+EndGlobal

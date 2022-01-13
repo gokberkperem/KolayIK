@@ -1,5 +1,3 @@
-using System;
-
 namespace Kolayik.UI.Models
 {
     public class ErrorViewModel

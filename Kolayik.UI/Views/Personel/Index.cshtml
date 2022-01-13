@@ -14,6 +14,49 @@
     </div>
 </div>
 
+<hr />
+<h1 class="text-center">İzin Bilgilerim</h1>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>İzin Tipi</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Kaç Gün</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Yıllık İzin</td>
+                    <td>@DateTime.Now.AddDays(60)</td>
+                    <td>@DateTime.Now.AddDays(80)</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Ücretli İzin</td>
+                    <td>@DateTime.Now.AddDays(-10)</td>
+                    <td>@DateTime.Now.AddDays(-8)</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Yıllık İzin</td>
+                    <td>@DateTime.Now.AddDays(60)</td>
+                    <td>@DateTime.Now.AddDays(80)</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Ücretli İzin</td>
+                    <td>@DateTime.Now.AddDays(-10)</td>
+                    <td>@DateTime.Now.AddDays(-8)</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 @section Styles{
     <style>
         body {

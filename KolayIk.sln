@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{BD2E2EB8-C6F1-482E-9133-3E58DFE7C4AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F5AFC996-F82C-4BE8-8E36-40E3FDA903B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kolayik.UI", "Kolayik.UI\Kolayik.UI.csproj", "{BC2BC773-6477-4F88-942E-A1133C95D924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kolayik.UI", "Kolayik.UI\Kolayik.UI.csproj", "{BC2BC773-6477-4F88-942E-A1133C95D924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{675BE788-2C92-4420-957F-86EEB4E359E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BC2BC773-6477-4F88-942E-A1133C95D924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC2BC773-6477-4F88-942E-A1133C95D924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2BC773-6477-4F88-942E-A1133C95D924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675BE788-2C92-4420-957F-86EEB4E359E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675BE788-2C92-4420-957F-86EEB4E359E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675BE788-2C92-4420-957F-86EEB4E359E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675BE788-2C92-4420-957F-86EEB4E359E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

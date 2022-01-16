@@ -13,5 +13,11 @@ namespace Kolayik.UI.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Login(PersonelModel model)
+        {
+            return View();
+        }
     }
 }

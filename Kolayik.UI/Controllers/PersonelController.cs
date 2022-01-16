@@ -8,6 +8,10 @@ namespace Kolayik.UI.Controllers
         {
             return View();
         }
-        public int MyProperty { get; set; }
+       
+        public IActionResult Login()
+        {
+            return View();
+        }
     }
 }

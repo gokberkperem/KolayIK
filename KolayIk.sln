@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kolayik.UI", "Kolayik.UI\Kolayik.UI.csproj", "{BC2BC773-6477-4F88-942E-A1133C95D924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{675BE788-2C92-4420-957F-86EEB4E359E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{675BE788-2C92-4420-957F-86EEB4E359E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "Models\ViewModels.csproj", "{6A78EE92-1FB0-473C-B13E-DC6D76598186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{675BE788-2C92-4420-957F-86EEB4E359E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{675BE788-2C92-4420-957F-86EEB4E359E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{675BE788-2C92-4420-957F-86EEB4E359E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A78EE92-1FB0-473C-B13E-DC6D76598186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A78EE92-1FB0-473C-B13E-DC6D76598186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A78EE92-1FB0-473C-B13E-DC6D76598186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A78EE92-1FB0-473C-B13E-DC6D76598186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

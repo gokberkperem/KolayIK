@@ -48,6 +48,6 @@ namespace Entities
 
         public virtual List<Zimmet> Zimmetler { get; set; } // navigation property
 
-
+        public virtual List<Harcama> Harcamalar { get; set; }
     }
 }

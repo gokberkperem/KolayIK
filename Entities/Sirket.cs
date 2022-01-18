@@ -16,6 +16,8 @@ namespace Entities
         public string Email { get; set; }
         public DateTime KurulusTarihi { get; set; }
 
+        // Todo : Logo nasıl tutulacak
+
         public SirketYoneticisi Yonetici { get; set; }
         public List<Personel> Personeller { get; set; } 
     }

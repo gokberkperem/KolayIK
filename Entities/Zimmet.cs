@@ -8,5 +8,10 @@ namespace Entities
 {
     public class Zimmet
     {
+        public int Id { get; set; }
+        public string Ad { get; set; }
+        public string Detay { get; set; }
+
+        public virtual Personel Personel { get; set; }
     }
 }

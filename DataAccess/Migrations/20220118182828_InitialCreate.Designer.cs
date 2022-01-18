@@ -4,14 +4,16 @@ using DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220118182828_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,15 +192,10 @@ namespace DataAccess.Migrations
                     b.Property<string>("Telefon")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UyelikPaketiId")
-                        .HasColumnType("int");
-
                     b.Property<string>("WebSitesi")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UyelikPaketiId");
 
                     b.ToTable("Sirketler");
                 });
@@ -272,9 +269,6 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("BitisTarihi")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("SirketId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Tip")
                         .HasColumnType("int");
@@ -377,15 +371,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Sirketi");
                 });
 
-            modelBuilder.Entity("Entities.Classes.Sirket", b =>
-                {
-                    b.HasOne("Entities.Classes.UyelikPaketi", "UyelikPaketi")
-                        .WithMany("Sirketler")
-                        .HasForeignKey("UyelikPaketiId");
-
-                    b.Navigation("UyelikPaketi");
-                });
-
             modelBuilder.Entity("Entities.Classes.SirketYoneticisi", b =>
                 {
                     b.HasOne("Entities.Classes.Sirket", "Sirketi")
@@ -432,11 +417,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Personeller");
 
                     b.Navigation("Yonetici");
-                });
-
-            modelBuilder.Entity("Entities.Classes.UyelikPaketi", b =>
-                {
-                    b.Navigation("Sirketler");
                 });
 
             modelBuilder.Entity("Entities.Classes.Yorum", b =>

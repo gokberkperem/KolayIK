@@ -1,0 +1,2 @@
+admin eklenmesi nasıl yapılır ve engellenir
+fotoğraf ekleme, database de tutma işlemi nasıl yapılır

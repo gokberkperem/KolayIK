@@ -1,36 +1,37 @@
-﻿using System;
+﻿using Entities.Enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Classes
 {
     public class Harcama
-    {
+    {   
+        [Key]
         public int Id { get; set; }
+
+        [Required]
         public HarcamaTipi Tip { get; set; }
+
+        [StringLength(149)]
         public string Aciklama { get; set; }
+
+        [Required]
         public decimal Tutar { get; set; }
+
+        [Required]
         public DateTime Tarihi { get; set; }
+
+        [Required]
         public HarcamaOnayDurumu Durumu { get; set; }
 
+        //to do fiş fotoğrafı eklemek ??? 
+
+        [Required]
         public virtual Personel Personel { get; set; }
-    }
-
-    public enum HarcamaTipi
-    {
-        Yol,
-        Yemek,
-        Diger,
-        //....
-    }
-
-    public enum HarcamaOnayDurumu
-    {
-        Beklemede,
-        Kabul,
-        Red
     }
 
 }

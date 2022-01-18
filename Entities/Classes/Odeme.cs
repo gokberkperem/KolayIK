@@ -1,36 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Enums;
 
-namespace Entities
+namespace Entities.Classes
+
 {
     public class Odeme
     {
+        [Key]
         public int Id { get; set; }
+        [Required]
         public OdemeTipi Tipi { get; set; }
+        [Required]
         public decimal Miktari { get; set; }
+        [Required]
         public DateTime OdemeTarihi { get; set; }
-
+        [Required]
         public Personel Personel { get; set; }
-
-    }
-
-    public enum OdemeTipi
-    {
-        Avans,
-        Maas,
-        FazlaMesai,
-        Ikramiye,
-        Evlilik,
-        Dogum,
-        Sendika,
-        Yol,
-        Yemek,
-        Agi,
-        CocukYardimi,
-        YakacakYardimi
 
     }
 }

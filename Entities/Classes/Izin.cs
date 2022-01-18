@@ -1,49 +1,29 @@
-﻿using System;
+﻿using Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Classes
 {
     public class Izin
     {   
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public IzinTurleri Tur { get; set; }
-
+        [Required]
         public DateTime BaslangicTarihi { get; set; }
-
+        [Required]
         public DateTime BitisTarihi { get; set; }
-
+        [Required]
         public IzinDurumu Durumu { get; set; }
-
+        [Required]
         public Personel Personel { get; set; }
-
+        [Required]
         public Odeme Odeme { get; set; }
-    }
-
-
-    public enum IzinDurumu
-    {
-        Beklemede,
-        Kabul,
-        Red
-    }
-
-    public enum IzinTurleri
-    {
-        YillikIzin,
-        DogumIzni,
-        UcretsIzin,
-        EvlilikIzni,
-        RaporIzni,
-        AnnelikIzni,
-        BabalikIzni,
-        MazaretIzni,
-        OlumIzni
-
     }
 }

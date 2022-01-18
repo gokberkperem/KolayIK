@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Entities.Classes
 {
     public class SiteYoneticisi
     {
+        public int Id { get; set; }
+        public string Ad { get; } = "admin";
+        public string Parola { get; } = "123";
     }
 }

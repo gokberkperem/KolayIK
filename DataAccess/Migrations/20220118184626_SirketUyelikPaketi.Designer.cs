@@ -4,14 +4,16 @@ using DataAccess.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220118184626_SirketUyelikPaketi")]
+    partial class SirketUyelikPaketi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,9 +275,6 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("BitisTarihi")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("SirketId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Tip")
                         .HasColumnType("int");
 
@@ -380,7 +379,7 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entities.Classes.Sirket", b =>
                 {
                     b.HasOne("Entities.Classes.UyelikPaketi", "UyelikPaketi")
-                        .WithMany("Sirketler")
+                        .WithMany()
                         .HasForeignKey("UyelikPaketiId");
 
                     b.Navigation("UyelikPaketi");
@@ -432,11 +431,6 @@ namespace DataAccess.Migrations
                     b.Navigation("Personeller");
 
                     b.Navigation("Yonetici");
-                });
-
-            modelBuilder.Entity("Entities.Classes.UyelikPaketi", b =>
-                {
-                    b.Navigation("Sirketler");
                 });
 
             modelBuilder.Entity("Entities.Classes.Yorum", b =>

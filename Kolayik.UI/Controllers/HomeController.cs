@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using ViewModels;
 
 namespace Kolayik.UI.Controllers
 {
@@ -28,6 +29,15 @@ namespace Kolayik.UI.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Register(SirketRegisterViewModel model)
+        {
+            return View();
         }
     }
 }

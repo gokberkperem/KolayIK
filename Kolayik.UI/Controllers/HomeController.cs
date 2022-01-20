@@ -1,4 +1,5 @@
-﻿using Kolayik.UI.Models;
+﻿using Business;
+using Kolayik.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
@@ -8,6 +9,7 @@ namespace Kolayik.UI.Controllers
 {
     public class HomeController : Controller
     {
+        private UserService _userService = new UserService();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -39,9 +41,14 @@ namespace Kolayik.UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                _userService.Register(model);
                 return RedirectToAction(nameof(Index));
             }
             return View(model);
+        }
+        public IActionResult Login()
+        {
+            return View();
         }
     }
 }

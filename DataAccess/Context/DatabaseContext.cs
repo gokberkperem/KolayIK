@@ -1,6 +1,8 @@
 ﻿using Entities;
 using Entities.Classes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace DataAccess.Context
 {
@@ -24,6 +26,20 @@ namespace DataAccess.Context
         public DbSet<UyelikPaketi> UyelikPaketleri { get; set; }
         public DbSet<Yorum> Yorumlar { get; set; }
         public DbSet<Zimmet> Zimmetler { get; set; }
-        
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json")
+                   .Build();
+                var connectionString = configuration.GetConnectionString("KolayIkDbConnnectionString");
+                optionsBuilder.UseSqlServer(connectionString);
+            }
+           // base.OnConfiguring(optionsBuilder);
+        }
+
     }
 }

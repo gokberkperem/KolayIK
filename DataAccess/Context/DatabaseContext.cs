@@ -6,7 +6,7 @@ namespace DataAccess.Context
 {
     public class DatabaseContext : DbContext
     {
-        protected DatabaseContext()
+        public DatabaseContext()
         {
 
         }

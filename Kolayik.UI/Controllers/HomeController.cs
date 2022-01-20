@@ -37,7 +37,11 @@ namespace Kolayik.UI.Controllers
         [HttpPost]
         public IActionResult Register(SirketRegisterViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(model);
         }
     }
 }

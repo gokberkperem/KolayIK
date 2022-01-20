@@ -6,30 +6,30 @@
 <h1 class="text-center p-4" >Şirket Kayıt Olma Sayfası</h1>
 <div class="row">
     <div class="col-6 offset-3">
-        <form>
+        <form method="post">
             <div class="form-group">
-                <label>Ad</label>
-                <input type="text" class="form-control" placeholder="Şirket Adı">
+                <label asp-for="Ad"></label>
+                <input asp-for="Ad" class="form-control">
             </div>
             <div class="form-group">
-                <label>SGK Sicil No</label>
-                <input type="text" class="form-control" placeholder="Şirket Sicil Numarası">
+                <label asp-for="SGKSicilNo"></label>
+                <input asp-for="SGKSicilNo" class="form-control">
             </div>
             <div class="form-group">
-                <label>Telefon</label>
-                <input type="number" class="form-control" placeholder="Şirket Telefon Numarası">
+                <label asp-for="Telefon"></label>
+                <input asp-for="Telefon" class="form-control">
             </div>
             <div class="form-group">
-                <label>Mail Adresi</label>
-                <input type="email" class="form-control" placeholder="Şirket Mail Adresi">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control">
             </div>
             <div class="form-group">
-                <label>Parola</label>
-                <input type="password" class="form-control" placeholder="Parola">
+                <label asp-for="Parola"></label>
+                <input asp-for="Parola" class="form-control">
             </div>
             <div class="form-group">
-                <label>Parola Tekrarı</label>
-                <input type="password" class="form-control" placeholder="Parola Tekrarı">
+                <label asp-for="ParolaTekrari"></label>
+                <input asp-for="ParolaTekrari" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Kayıt Ol</button>
         </form>

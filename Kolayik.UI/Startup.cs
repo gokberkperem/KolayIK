@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace Kolayik.UI
 {
@@ -20,6 +21,12 @@ namespace Kolayik.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(opts=> 
+            {
+                opts.Cookie.Name = "KolayIk.Session";
+                opts.IdleTimeout = TimeSpan.FromMinutes(30);
+
+            });
             services.AddDbContext<DatabaseContext>(opts =>
                 opts.UseSqlServer(Configuration.GetConnectionString("KolayIkDbConnnectionString"))
             ); ; 
@@ -39,6 +46,8 @@ namespace Kolayik.UI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSession();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

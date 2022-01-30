@@ -15,6 +15,7 @@ namespace Business
 
         public Sirket Register(SirketRegisterViewModel model)
         {
+            ServiceResult<Sirket> result = new ServiceResult<Sirket>();
             Sirket sirket = new Sirket
             {
                 Ad=model.Ad,

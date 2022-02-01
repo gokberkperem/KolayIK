@@ -22,5 +22,12 @@ namespace DataAccess
 
             return null;
         }
+        public Sirket Authorize(string email, string password)
+        {
+            Sirket sirket = _dbContext.Sirketler.SingleOrDefault(
+                u => u.Email == email && u.Parola == password);
+
+            return sirket;
+        }
     }
 }

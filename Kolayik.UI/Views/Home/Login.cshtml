@@ -1,4 +1,4 @@
-﻿
+﻿@model SirketLoginViewModel
 @{
     ViewData["Title"] = "Login";
 }
@@ -8,12 +8,12 @@
     <div class="col-6 offset-3">
         <form method="post">
             <div class="form-group">
-                <label> Email </label>
-                <input type="email" placeholder="Emailinizi Giriniz" class="form-control">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" aut class="form-control">
             </div>
             <div class="form-group">
-                <label> Parola </label>
-                <input type="password" placeholder="Şifrenizi Giriniz" class="form-control">
+                <label asp-for="Parola"></label>
+                <input asp-for="Parola" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Giriş Yap</button>
         </form>

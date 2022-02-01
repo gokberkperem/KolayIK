@@ -13,7 +13,7 @@ namespace Business
     {
         private UserRepository _userRepository = new UserRepository();
 
-        public Sirket Register(SirketRegisterViewModel model)
+        public ServiceResult<Sirket> Register(SirketRegisterViewModel model)
         {
             ServiceResult<Sirket> result = new ServiceResult<Sirket>();
             Sirket sirket = new Sirket
@@ -26,12 +26,29 @@ namespace Business
                 Telefon=model.Telefon
             };
 
-            /* if (_userRepository.Insert(sirket)==null)
-             {
+            if (_userRepository.Insert(sirket) == null)
+            {
+                result.AddError(string.Empty, "Kayıt yapılamadı.");
+                return result;
+            }
 
-             }
-            */
-            return _userRepository.Insert(sirket);
+            result.Data = sirket;
+            return result;
+        }
+        public ServiceResult<Sirket> Login(SirketLoginViewModel model)
+        {
+            ServiceResult<Sirket> result = new ServiceResult<Sirket>();
+
+            Sirket sirket = _userRepository.Authorize(model.Email,model.Parola);
+
+            if (sirket == null)
+            {
+                result.AddError(string.Empty, "Hatalı kullanıcı adı ya da şifre ya da kullanıcı pasif durumdadır.");
+                return result;
+            }
+
+            result.Data = sirket;
+            return result;
         }
     }
 }

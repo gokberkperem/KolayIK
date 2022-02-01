@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "SirketAnasayfasi";
+}
+
+<h1>SirketAnasayfasi</h1>
+<div class="row p-3">
+    <div class="col">
+        <a class="btn btn-primary" asp-action="PersonelEkle"><i class="fas fa-plus mr-2"></i>Personel Ekle</a>
+    </div>
+</div>
+
+<div class="row p-3">
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Adı Soyadı</th>
+                        <th>Emaili</th>
+                        <th>Telefonu</th>
+                        <th>İşe Başlama Tarihi</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gökberk</td>
+                        <td>perem</td>
+                        <td>perem</td>
+                        <td>perem</td>
+                        <td class="text-end" width="150">
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a class="btn btn-outline-warning btn-sm" asp-action="Edit"  ><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-outline-info btn-sm" asp-action="Details" ><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" ><i class="fas fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

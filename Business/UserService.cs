@@ -50,5 +50,6 @@ namespace Business
             result.Data = sirket;
             return result;
         }
+       
     }
 }

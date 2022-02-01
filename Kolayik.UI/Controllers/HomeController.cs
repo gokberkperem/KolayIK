@@ -13,12 +13,7 @@ namespace Kolayik.UI.Controllers
     public class HomeController : MyController
     {
         private UserService _userService = new UserService();
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private PersonelService _personelService = new PersonelService();
 
         public IActionResult Index()
         {
@@ -82,12 +77,40 @@ namespace Kolayik.UI.Controllers
                     HttpContext.Session.SetString(Constants.SessionUsername, result.Data.Ad);
                     HttpContext.Session.SetString(Constants.SessionUserEmail, result.Data.Email);
 
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(SirketAnasayfasi));
                 }
             }
 
             return View(model);
         }
 
+        public IActionResult SirketAnasayfasi()
+        {
+            return View();
+        }
+
+        public IActionResult PersonelEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult PersonelEkle(PersonelRegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ServiceResult<Personel> result = _personelService.Register(model);
+
+                if (result.HasError)
+                {
+                    AddErrorsToModelState(result.Errors);
+                }
+                else
+                {
+                    return RedirectToAction(nameof(SirketAnasayfasi));
+                }
+            }
+
+            return View(model);
+        }
     }
 }

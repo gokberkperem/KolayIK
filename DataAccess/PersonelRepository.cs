@@ -21,5 +21,22 @@ namespace DataAccess
 
             return null;
         }
+        public List<Personel> GetPersonels()
+        {
+            return _dbContext.Personeller.ToList();
+        }
+        public Personel GetPersonel(int id)
+        {
+           return _dbContext.Personeller.Find(id);
+
+        }
+        public bool Remove(int id)
+        {
+            Personel personel = GetPersonel(id);
+
+            _dbContext.Personeller.Remove(personel);
+
+            return _dbContext.SaveChanges() > 0; 
+        }
     }
 }

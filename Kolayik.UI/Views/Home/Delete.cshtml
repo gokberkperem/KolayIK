@@ -1,0 +1,38 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "PersonelSil";
+}
+
+<h1>PersonelSil</h1>
+
+<div class="row p-4">
+    <div class="col-4">
+        <div>
+            <h5 class="text-danger">Aşağıdaki kaydı silmek istediğinize emin misiniz?</h5>
+            <p class="small text-danger">Bu işlem geri alımaz! Kategoriye ait yazılarda silinecektir.</p>
+        </div>
+
+        <dl class="row">
+            <dt class="col-6">@Html.DisplayNameFor(m => m.Ad)</dt>
+            <dd class="col-6">@Model.Ad</dd>
+
+            <dt class="col-6">@Html.DisplayNameFor(m => m.Soyad)</dt>
+            <dd class="col-6">@Model.Soyad</dd>
+
+            @*<dt class="col-6">@Html.DisplayNameFor(m => m.IsHidden)</dt>
+            <dd class="col-6"><i class="fas @(Model.IsHidden ? "fa-check text-success" : "fa-times text-danger")"></i></dd>
+
+            <dt class="col-6">@Html.DisplayNameFor(m => m.Desc)</dt>
+            <dd class="col-6">@Model.Desc</dd>*@
+        </dl>
+        <div class="mt-4">
+            @*<form method="post" asp-action="DeleteConfirm" asp-route-id="@Model.Id">*@
+            <form method="post">
+                <button class="btn btn-danger" type="submit"><i class="fas fa-trash me-2"></i>Sil</button>
+                <a class="btn btn-secondary" asp-action="SirketAnasayfasi"><i class="fas fa-arrow-left me-2"></i>Listeye Dön!</a>
+            </form>
+            <div class="mt-3 text-danger" asp-validation-summary="All"></div>
+        </div>
+    </div>
+</div>
+

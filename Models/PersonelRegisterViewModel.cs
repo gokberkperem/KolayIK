@@ -20,9 +20,12 @@ namespace ViewModels
         public DateTime IseAlimTarihi { get; set; }
         [Required]
         public DateTime DogumTarihi { get; set; }
-
+        [Required]
         public string Telefon { get; set; }
-
+        [Required]
+        public string Parola { get; set; }
+        [Required]
+        public string ParolaTekrari { get; set; }
         
     }
 

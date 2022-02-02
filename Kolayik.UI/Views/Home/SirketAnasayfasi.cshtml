@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Personel>
 @{
     ViewData["Title"] = "SirketAnasayfasi";
 }
@@ -24,19 +24,24 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var personel in Model)
+                    {
+
                     <tr>
-                        <td>Gökberk</td>
-                        <td>perem</td>
-                        <td>perem</td>
-                        <td>perem</td>
+                        <td>@personel.Ad @personel.Soyad</td>
+                        <td>@personel.Email</td>
+                        <td>@personel.Telefon</td>
+                        <td>@personel.IseAlimTarihi</td>
                         <td class="text-end" width="150">
                             <div class="btn-group btn-group-sm" role="group">
-                                <a class="btn btn-outline-warning btn-sm" asp-action="Edit"  ><i class="fas fa-edit"></i></a>
-                                <a class="btn btn-outline-info btn-sm" asp-action="Details" ><i class="fas fa-search"></i></a>
-                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" ><i class="fas fa-trash"></i></a>
+                                <a class="btn btn-outline-warning btn-sm" asp-action="Edit" asp-route-id="@personel.Id"  ><i class="fas fa-edit"></i></a>
+                                <a class="btn btn-outline-info btn-sm" asp-action="Details" asp-route-id="@personel.Id"  ><i class="fas fa-search"></i></a>
+                                <a class="btn btn-outline-danger btn-sm" asp-action="Delete" asp-route-id="@personel.Id"  ><i class="fas fa-trash"></i></a>
                             </div>
                         </td>
                     </tr>
+                    }
+            
                 </tbody>
             </table>
 

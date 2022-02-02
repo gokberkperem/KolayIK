@@ -39,6 +39,16 @@
                 <input asp-for="DogumTarihi" class="form-control" placeholder="Personelin Doğum Tarihini Giriniz" />
                 <span asp-validation-for="DogumTarihi" class="text-danger small"></span>
             </div>
+            <div class="mb-3">
+                <label asp-for="Parola" class="form-label"></label>
+                <input asp-for="Parola" class="form-control" placeholder="Personelin Parolasını Giriniz" />
+                <span asp-validation-for="Parola" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ParolaTekrari" class="form-label"></label>
+                <input asp-for="ParolaTekrari" class="form-control" placeholder="Personelin Parolasının Tekrarını Giriniz" />
+                <span asp-validation-for="ParolaTekrari" class="text-danger small"></span>
+            </div>
             <div class="">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Kaydet</button>
                 <a class="btn btn-secondary" asp-action="SirketAnasayfasi"><i class="fas fa-arrow-left mr-2"></i>Listeye Dön!</a>

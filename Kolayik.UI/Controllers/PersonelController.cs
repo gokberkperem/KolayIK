@@ -2,7 +2,7 @@
 
 namespace Kolayik.UI.Controllers
 {
-    public class PersonelController : Controller
+    public class PersonelController : MyController
     {
         public IActionResult Index()
         {

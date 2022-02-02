@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using ViewModels;
+using System.Collections.Generic;
 
 namespace Kolayik.UI.Controllers
 {
@@ -35,7 +36,7 @@ namespace Kolayik.UI.Controllers
             return View();
         }
         [HttpPost]
-        
+
         public IActionResult Register(SirketRegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -86,7 +87,9 @@ namespace Kolayik.UI.Controllers
 
         public IActionResult SirketAnasayfasi()
         {
-            return View();
+            List<Personel> personels = _personelService.GetPersonels();
+
+            return View(personels);
         }
 
         public IActionResult PersonelEkle()
@@ -111,6 +114,27 @@ namespace Kolayik.UI.Controllers
             }
 
             return View(model);
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            ServiceResult<Personel> result = _personelService.Find(id);
+            return View(result.Data);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeleteConfirm(int id)
+        {
+            ServiceResult<object> result = _personelService.Remove(id);
+
+            if (result.HasError)
+            {
+                AddErrorsToModelState(result.Errors);
+                return View(nameof(Delete), _personelService.Find(id).Data);
+            }
+
+            return RedirectToAction(nameof(SirketAnasayfasi));
         }
     }
 }

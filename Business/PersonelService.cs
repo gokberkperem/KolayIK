@@ -77,5 +77,49 @@ namespace Business
 
             return result;
         }
+
+        public ServiceResult<Personel> Update(int id, PersonelEditViewModel model)
+        {
+            ServiceResult<Personel> result = new ServiceResult<Personel>();
+
+            model.Email = model.Email?.Trim();
+
+            if (_personelRepository.IsExistsByEmail(model.Email))
+            {
+                result.AddError(nameof(PersonelEditViewModel.Email), "Aynı isimli mail mevcuttur.");
+                return result;
+            }
+
+            model.Telefon = model.Telefon?.Trim();
+
+            if (_personelRepository.IsExistsByTelefon(model.Telefon))
+            {
+                result.AddError(nameof(PersonelEditViewModel.Telefon), "Aynı telefon numarası mevcuttur.");
+                return result;
+            }
+
+            Personel personel = new Personel
+            {
+                Id = id,
+                Ad = model.Ad,
+                Soyad = model.Soyad,
+                Email = model.Email,
+                Telefon = model.Telefon,
+                IseAlimTarihi = model.IseAlimTarihi,
+                DogumTarihi = model.DogumTarihi,
+                AktifMi = model.AktifMi,
+            };
+
+            personel = _personelRepository.Update(id, personel);
+
+            if (personel == null)
+            {
+                result.AddError(string.Empty, "Kayıt yapılamadı.");
+                return result;
+            }
+
+            result.Data = personel;
+            return result;
+        }
     }
 }

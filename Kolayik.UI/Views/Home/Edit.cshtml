@@ -1,0 +1,58 @@
+﻿@model PersonelEditViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Personel Düzenleme Sayfası</h1>
+
+<div class="row p-4">
+    <div class="col-6">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post" >
+            <div class="mb-3">
+                <label asp-for="Ad" class="form-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Soyad" class="form-label"></label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Telefon" class="form-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="IseAlimTarihi" class="form-label"></label>
+                <input asp-for="IseAlimTarihi" class="form-control" />
+                <span asp-validation-for="IseAlimTarihi" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="DogumTarihi" class="form-label"></label>
+                <input asp-for="DogumTarihi" class="form-control" />
+                <span asp-validation-for="DogumTarihi" class="text-danger small"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <input asp-for="AktifMi" class="form-check-input">
+                <label asp-for="AktifMi" class="form-check-label"></label>
+            </div>
+
+            <div class="">
+                @*@if (Model.NotFound == false)
+            {
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save me-2"></i>Kaydet</button>
+            }*@
+                <button type="submit" class="btn btn-primary" @(Model.NotFound ? "disabled" : "")><i class="fas fa-save mr-3"></i>Kaydet</button>
+                <a class="btn btn-secondary" asp-action="SirketAnasayfasi"><i class="fas fa-arrow-left me-2"></i>Listeye Dön!</a>
+            </div>
+        </form>
+    </div>
+</div>
+

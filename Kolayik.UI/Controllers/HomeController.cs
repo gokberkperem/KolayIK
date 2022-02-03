@@ -136,5 +136,65 @@ namespace Kolayik.UI.Controllers
 
             return RedirectToAction(nameof(SirketAnasayfasi));
         }
+        public IActionResult Details(int id)
+        {
+            ServiceResult<Personel> result = _personelService.Find(id);
+            return View(result.Data);
+        }
+        public IActionResult Edit(int id)
+        {
+            ServiceResult<Personel> result = _personelService.Find(id);
+
+            if (result.HasError)
+            {
+                AddErrorsToModelState(result.Errors);
+
+                // Kullanıcıyı kayıt yoksa her türlü index e gönder..
+                //if (result.NotFound)
+                //{
+                //    return RedirectToAction(nameof(Index));
+                //}
+            }
+
+            PersonelEditViewModel model = null;
+
+            if (result.Data != null)
+            {
+                model = new PersonelEditViewModel
+                {
+                    Ad = result.Data.Ad,
+                    Soyad = result.Data.Soyad,
+                    Email = result.Data.Email,
+                    Telefon = result.Data.Telefon,
+                    IseAlimTarihi = result.Data.IseAlimTarihi,
+                    DogumTarihi = result.Data.DogumTarihi,
+                    AktifMi = result.Data.AktifMi
+                };
+            }
+            else
+            {
+                model = new PersonelEditViewModel
+                {
+                    NotFound = result.NotFound
+                };
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(int id, PersonelEditViewModel model)
+        {
+            ServiceResult<Personel> result = _personelService.Update(id, model);
+
+            if (result.HasError)
+            {
+                AddErrorsToModelState(result.Errors);
+                return View(model);
+            }
+
+            return RedirectToAction(nameof(SirketAnasayfasi));
+        }
     }
 }

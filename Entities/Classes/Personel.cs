@@ -30,7 +30,7 @@ namespace Entities.Classes
         [Required]
         public DateTime DogumTarihi { get; set; }
 
-        
+        [Display(Name = "İşe Alım Tarihi")]
         public DateTime IseAlimTarihi { get; set; }
         
         public bool AktifMi { get; set; }

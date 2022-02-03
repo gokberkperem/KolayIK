@@ -61,14 +61,22 @@ namespace DataAccess
             return null;
         }
 
-        public bool IsExistsByEmail(string email)
+        public Personel Authorize(string email, string parola)
         {
-           return _dbContext.Personeller.Any(e => e.Email == email);
+            Personel personel = _dbContext.Personeller.SingleOrDefault(
+                u => u.Email == email && u.Parola == parola);
+
+            return personel;
         }
 
-        public bool IsExistsByTelefon(string telefon)
+        public bool IsExistsByEmail(string email, int personelId)
         {
-            return _dbContext.Personeller.Any(e => e.Telefon == telefon);
+           return _dbContext.Personeller.Any(e => e.Email == email && e.Id != personelId);
+        }
+
+        public bool IsExistsByTelefon(string telefon, int personelId)
+        {
+            return _dbContext.Personeller.Any(e => e.Telefon == telefon && e.Id != personelId);
         }
     }
 }

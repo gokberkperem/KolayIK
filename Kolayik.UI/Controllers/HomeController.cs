@@ -49,18 +49,18 @@ namespace Kolayik.UI.Controllers
                 }
                 else
                 {
-                    return RedirectToAction(nameof(Login));
+                    return RedirectToAction(nameof(SirketLogin));
                 }
             }
 
             return View(model);
         }
-        public IActionResult Login()
+        public IActionResult SirketLogin()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Login(SirketLoginViewModel model)
+        public IActionResult SirketLogin(SirketLoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -195,6 +195,11 @@ namespace Kolayik.UI.Controllers
             }
 
             return RedirectToAction(nameof(SirketAnasayfasi));
+        }
+
+        public IActionResult Login()
+        {
+            return View();
         }
     }
 }

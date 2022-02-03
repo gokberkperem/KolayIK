@@ -37,6 +37,23 @@ namespace Business
             result.Data = personel;
             return result;
         }
+
+        public ServiceResult<Personel> Login(PersonelLoginViewModel model)
+        {
+            ServiceResult<Personel> result = new ServiceResult<Personel>();
+
+            Personel personel = _personelRepository.Authorize(model.Email, model.Parola);
+
+            if (personel == null)
+            {
+                result.AddError(string.Empty, "Hatalı kullanıcı adı ya da şifre ya da kullanıcı pasif durumdadır.");
+                return result;
+            }
+
+            result.Data = personel;
+            return result;
+        }
+
         public List<Personel> GetPersonels()
         {
             List<Personel> personels = _personelRepository.GetPersonels();
@@ -84,7 +101,7 @@ namespace Business
 
             model.Email = model.Email?.Trim();
 
-            if (_personelRepository.IsExistsByEmail(model.Email))
+            if (_personelRepository.IsExistsByEmail(model.Email, id))
             {
                 result.AddError(nameof(PersonelEditViewModel.Email), "Aynı isimli mail mevcuttur.");
                 return result;
@@ -92,7 +109,7 @@ namespace Business
 
             model.Telefon = model.Telefon?.Trim();
 
-            if (_personelRepository.IsExistsByTelefon(model.Telefon))
+            if (_personelRepository.IsExistsByTelefon(model.Telefon, id))
             {
                 result.AddError(nameof(PersonelEditViewModel.Telefon), "Aynı telefon numarası mevcuttur.");
                 return result;

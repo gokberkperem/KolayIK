@@ -1,0 +1,51 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Views/Shared/_PersonelLayout.cshtml";
+}
+
+<h1>Profil Güncelleme</h1>
+
+<div class="row pt-4">
+    <div class="col-3">
+        <img class="img-thumbnail rounded mx-auto d-block rounded-circle" src="https://pbs.twimg.com/media/EvizTxJXcAIc3sT.jpg" />
+
+        <form method="post" asp-action="ProfileImageUpload" enctype="multipart/form-data" class="mt-3 text-center">
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <input type="file" id="profileImage" name="profileImage" class="form-control" />
+                    <p><small class="small">Lütfen sadece resim dosyası seçiniz.(jpeg, jpg, png)</small></p>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-upload mr-2"></i>Yükle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <h5>Bilgileri Güncelle</h5>
+
+        <form method="post" class="mb-5" asp-action="ProfileSaveInfo">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                <input asp-for="Ad" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user-tag"></i></span>
+                <input asp-for="Soyad" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input asp-for="Telefon" class="form-control" />
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+

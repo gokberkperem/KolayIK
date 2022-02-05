@@ -87,7 +87,7 @@ namespace Kolayik.UI.Controllers
 
         public IActionResult SirketAnasayfasi()
         {
-            List<Personel> personels = _personelService.GetPersonels();
+            List<Personel> personels = _personelService.GetAll();
 
             return View(personels);
         }
@@ -200,6 +200,11 @@ namespace Kolayik.UI.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+        public new IActionResult SignOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

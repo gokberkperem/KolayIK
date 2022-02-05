@@ -45,5 +45,48 @@ namespace Kolayik.UI.Controllers
 
             return View(model);
         }
+        public IActionResult ShowProfile()
+        {
+            int? userId = HttpContext.Session.GetInt32(Constants.SessionUserId);
+
+            ServiceResult<Personel> result = _personelService.Find(userId.Value);
+
+            if (result.HasError)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            return View(result.Data);
+        }
+        public new IActionResult SignOut()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult EditProfile()
+        {
+            int? personelId = HttpContext.Session.GetInt32(Constants.SessionUserId);
+
+            ServiceResult<Personel> result = _personelService.Find(personelId.Value);
+
+            if (result.HasError)
+            {
+                return RedirectToAction(nameof(Login));
+            }
+
+            return View(result.Data);
+        }
+        [HttpPost]
+        public IActionResult ProfileSaveInfo(Personel p)
+        {
+            int? personelId = HttpContext.Session.GetInt32(Constants.SessionUserId);
+
+            ServiceResult<Personel> result = _personelService.Find(personelId.Value);
+
+            Personel personel = result.Data;
+
+            _personelService.SaveProfileInfo(personel.Id, p);
+            return View(nameof(EditProfile));
+        }
     }
 }

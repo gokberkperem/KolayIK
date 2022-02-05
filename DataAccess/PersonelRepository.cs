@@ -21,18 +21,18 @@ namespace DataAccess
 
             return null;
         }
-        public List<Personel> GetPersonels()
+        public List<Personel> GetAll()
         {
             return _dbContext.Personeller.ToList();
         }
-        public Personel GetPersonel(int id)
+        public Personel GetPersonelById(int id)
         {
             return _dbContext.Personeller.Find(id);
 
         }
         public bool Remove(int id)
         {
-            Personel personel = GetPersonel(id);
+            Personel personel = GetPersonelById(id);
 
             _dbContext.Personeller.Remove(personel);
 
@@ -41,7 +41,7 @@ namespace DataAccess
 
         public Personel Update(int id, Personel personel)
         {
-            Personel personeldb = GetPersonel(id);
+            Personel personeldb = GetPersonelById(id);
 
             if (personeldb != null)
             {
@@ -52,9 +52,9 @@ namespace DataAccess
                 personeldb.IseAlimTarihi = personel.IseAlimTarihi;
                 personeldb.DogumTarihi = personel.DogumTarihi;
                 personeldb.AktifMi = personel.AktifMi;
-                
 
-                if (_dbContext.SaveChanges () > 0)
+
+                if (_dbContext.SaveChanges() > 0)
                     return personeldb;
             }
 
@@ -71,12 +71,33 @@ namespace DataAccess
 
         public bool IsExistsByEmail(string email, int personelId)
         {
-           return _dbContext.Personeller.Any(e => e.Email == email && e.Id != personelId);
+            return _dbContext.Personeller.Any(e => e.Email == email && e.Id != personelId);
         }
 
         public bool IsExistsByTelefon(string telefon, int personelId)
         {
             return _dbContext.Personeller.Any(e => e.Telefon == telefon && e.Id != personelId);
+        }
+
+        public bool ChangePassword(int id, string password)
+        {
+            Personel personel = GetPersonelById(id);
+
+            personel.Parola = password;
+
+            return _dbContext.SaveChanges() > 0;
+        }
+
+        public bool SaveProfileInfo(int id, Personel p)
+        {
+            Personel personel = GetPersonelById(id);
+
+            personel.Ad = p.Ad;
+            personel.Soyad = p.Soyad;
+            personel.Email = p.Email;
+            personel.Telefon = p.Telefon;
+
+            return _dbContext.SaveChanges() > 0;
         }
     }
 }

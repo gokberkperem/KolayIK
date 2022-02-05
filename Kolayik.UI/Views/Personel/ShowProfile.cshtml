@@ -1,0 +1,37 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "Personel Profili";
+    Layout = "~/Views/Shared/_PersonelLayout.cshtml";
+}
+
+<h1>Personel Profili</h1>
+
+<div class="row pt-4">
+    <div class="col-3">
+        <img class="img-thumbnail rounded mx-auto d-block rounded-circle" src="https://pbs.twimg.com/media/EvizTxJXcAIc3sT.jpg">
+    </div>
+    <div class="col-6">
+        <h5 class="display-4">@Model.Ad @Model.Soyad</h5>
+        <dl class="row">
+            <dt class="col-3">Şirket</dt>
+            <dd class="col-9">@Model.Sirketi</dd>
+
+            <dt class="col-3">E-Posta Adresi</dt>
+            <dd class="col-9">@Model.Email</dd>
+
+            <dt class="col-3">Telefon</dt>
+            <dd class="col-9">@Model.Telefon</dd>
+
+            <dt class="col-3">İşe Giriş Tarihi</dt>
+            <dd class="col-9">@Model.IseAlimTarihi</dd>
+
+            <dt class="col-3">Doğum Tarihi</dt>
+            <dd class="col-9">@Model.DogumTarihi</dd>
+
+
+            <dt class="col-3"></dt>
+            <dd class="col-9"><a href="#">ve dahası...</a></dd>
+        </dl>
+    </div>
+</div>
+

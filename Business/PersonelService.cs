@@ -54,9 +54,9 @@ namespace Business
             return result;
         }
 
-        public List<Personel> GetPersonels()
+        public List<Personel> GetAll()
         {
-            List<Personel> personels = _personelRepository.GetPersonels();
+            List<Personel> personels = _personelRepository.GetAll();
 
             if (personels != null)
             {
@@ -70,7 +70,7 @@ namespace Business
         {
             ServiceResult<Personel> result = new ServiceResult<Personel>();
 
-            Personel personel = _personelRepository.GetPersonel(id);
+            Personel personel = _personelRepository.GetPersonelById(id);
 
             result.Data = personel;
 
@@ -93,6 +93,12 @@ namespace Business
             }
 
             return result;
+        }
+
+        public bool SaveProfileInfo(int id, Personel p)
+        {
+            return _personelRepository.SaveProfileInfo(id, p);
+
         }
 
         public ServiceResult<Personel> Update(int id, PersonelEditViewModel model)
@@ -137,6 +143,12 @@ namespace Business
 
             result.Data = personel;
             return result;
+        }
+        
+        public bool ChangePassword(int id, string password) 
+        {
+            return _personelRepository.ChangePassword(id, password);
+            
         }
     }
 }
